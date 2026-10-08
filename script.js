@@ -1,26 +1,56 @@
 const input = document.getElementById("commandInput");
 const inputLine = document.getElementById("inputLine");
 const output = document.getElementById("output");
+const terminalBody = document.getElementById("terminalBody");
 const promptElement = document.querySelector(".prompt");
+
+const PROFILE = {
+  name: "Harun Erkam Balı",
+  headline: "Full Stack Developer | DevOps Engineer | R&D Engineer",
+  email: "admin@harunerkam.com",
+  website: "https://harunerkam.com/",
+  github: "https://github.com/erkamspyjamas",
+  linkedin: "https://www.linkedin.com/in/harunerkam/"
+};
+
+const CV_FILES = {
+  master: "cv/HARUN_ERKAM_BALI_CV.pdf",
+  backend: "cv/HARUN_ERKAM_BALI_BACKEND_CV.pdf",
+  fullstack: "cv/HARUN_ERKAM_BALI_FULLSTACK_CV.pdf"
+};
 
 let history = [];
 let historyIndex = -1;
 let currentPath = "/";
 
-/* ---------------- PRINT ---------------- */
+/* ---------------- OUTPUT ---------------- */
 
-function print(text) {
+function print(html = "") {
   const line = document.createElement("div");
-  line.innerHTML = text;
+  line.className = "output-line";
+  line.innerHTML = html;
   output.appendChild(line);
-  output.scrollTop = output.scrollHeight;
+  terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-/* ---------------- FILESYSTEM ---------------- */
+function normalizeArg(value = "") {
+  return value.trim().toLowerCase();
+}
+
+/* ---------------- VIRTUAL FILESYSTEM ---------------- */
 
 const fs = {
   "/": {
@@ -28,61 +58,142 @@ const fs = {
     files: {
       "about.txt": {
         type: "file",
-        content: `Harun Erkam Balı
-Full Stack Engineer
-DevOps & AI Systems Builder`
+        content: `<span class="heading">Harun Erkam Balı</span>
+${PROFILE.headline}
+
+Backend-focused software engineer with 3+ years of experience designing,
+building and operating production systems end-to-end.
+
+Core focus:
+• backend and API architecture
+• production-grade full-stack systems
+• cloud-native infrastructure and DevOps
+• R&D, real-time services and AI/TTS integrations`
       },
 
       "skills.txt": {
         type: "file",
-        content: `Backend
-- Python
-- Django
-- FastAPI
-- .NET
+        content: `<span class="heading">Languages</span>
+Python · Go · TypeScript · JavaScript · C# · SQL
 
-DevOps
-- Docker
-- Kubernetes
-- CI/CD
+<span class="heading">Backend</span>
+Django · Django REST Framework · FastAPI · Node.js · Express.js · NestJS
+REST APIs · JWT · RBAC · async/background processing
 
-AI
-- LLM
-- RAG
-- Vector DB
+<span class="heading">Frontend</span>
+React · Next.js · HTML · CSS · dashboard/admin interfaces
 
-Frontend
-- React
-- Next.js`
+<span class="heading">Data</span>
+PostgreSQL · Redis · MySQL · MSSQL · MongoDB · Firebase
+relational modeling · migrations · indexing · query optimization
+
+<span class="heading">DevOps & Infrastructure</span>
+Docker · Docker Compose · Kubernetes/k3s · Nginx · Traefik · PgBouncer
+Gunicorn/Uvicorn · Linux · GitHub Actions · CI/CD · SSL/TLS
+health/readiness checks · logging · monitoring
+
+<span class="heading">R&D / AI</span>
+PyTorch · NVIDIA NeMo · ESPnet · VITS · TTS pipelines
+streaming gateways · API/service integration`
+      },
+
+      "experience.txt": {
+        type: "file",
+        content: `<span class="heading">Neurosound Dikkat Ve Algı Geliştirme Merkezi</span>
+
+<span class="accent">Aug 2026 — Present</span>
+Full Stack Developer & DevOps Engineer — R&D
+Django · FastAPI · Go · PostgreSQL · Redis · distributed systems · AI/TTS
+
+<span class="accent">Aug 2024 — Aug 2026</span>
+Full Stack Developer & DevOps Engineer
+Django · FastAPI · Express.js · Node.js · Go · PostgreSQL · Redis
+Docker · k3s/Kubernetes · Nginx · PgBouncer · CI/CD · monitoring
+
+<span class="accent">Feb 2024 — Aug 2024</span>
+Full Stack Developer
+REST APIs · authentication · automation · integrations · SQL/ORM optimization
+
+<span class="accent">Nov 2023 — Feb 2024</span>
+Software Developer
+Unity · C# · interactive educational application
+
+<span class="heading">AutoDidactic Technologies</span>
+<span class="accent">Feb 2023 — Jun 2023</span>
+Research & Development Engineer
+Python · Node.js · Docker · Linux · AWS EC2 · AI/R&D experiments`
+      },
+
+      "contact.txt": {
+        type: "file",
+        content: `<span class="heading">Contact</span>
+Email    <a class="link" href="mailto:${PROFILE.email}">${PROFILE.email}</a>
+Website  <a class="link" href="${PROFILE.website}" target="_blank" rel="noopener">harunerkam.com</a>
+LinkedIn <a class="link" href="${PROFILE.linkedin}" target="_blank" rel="noopener">linkedin.com/in/harunerkam</a>
+GitHub   <a class="link" href="${PROFILE.github}" target="_blank" rel="noopener">github.com/erkamspyjamas</a>`
       },
 
       "projects": {
         type: "dir",
         files: {
-          "alfakocluk.md": {
+          "sustindex.md": {
             type: "file",
-            content: `AlfaKocluk Platform
-
-Education & coaching platform
-Built with Django + PostgreSQL
-Includes AI assistant`
+            content: `<span class="heading">Sustindex</span>
+FinTech platform developed independently.
+Stack: Django · FastAPI · React · PostgreSQL
+Private project; architecture details can be shared when appropriate.`
           },
-
-          "ai-assistant.md": {
+          "stock-device-tracker.md": {
             type: "file",
-            content: `AI Documentation Assistant
-
-RAG system
-LangChain
-Vector database`
+            content: `<span class="heading">Stock & Device Tracker</span>
+Inventory, cargo and device tracking system.
+Implemented with Node.js/Express.js using Firebase and MSSQL variants.`
           },
-
-          "tourism-platform.md": {
+          "cognitive-booster.md": {
             type: "file",
-            content: `Tourism Recommendation System
+            content: `<span class="heading">Cognitive Booster</span>
+Django + JavaScript application for cognitive exercises,
+user progress tracking and education workflows.`
+          },
+          "speed-reading.md": {
+            type: "file",
+            content: `<span class="heading">Speed Reading Platform</span>
+High-performance PHP/MySQL reading application
+extended and optimized for education users.`
+          },
+          "advanced-learning-unity.md": {
+            type: "file",
+            content: `<span class="heading">Advanced Learning Unity Program</span>
+Unity/C# educational application for power learners,
+combining interactive application logic with learning-oriented UX.`
+          },
+          "realtime-tts.md": {
+            type: "file",
+            content: `<span class="heading">Realtime TTS / AI Service Integration</span>
+Python TTS workers connected to application backends through Go/Python
+service layers with low-latency communication, retries, timeouts
+and production-reliability considerations.`
+          }
+        }
+      },
 
-Personalized travel platform
-Built with modern web technologies`
+      "cv": {
+        type: "dir",
+        files: {
+          "master.txt": {
+            type: "file",
+            content: `Master CV
+open cv master`
+          },
+          "backend.txt": {
+            type: "file",
+            content: `Backend-focused CV
+open cv backend`
+          },
+          "fullstack.txt": {
+            type: "file",
+            content: `Full Stack-focused CV
+open cv fullstack`
           }
         }
       }
@@ -92,22 +203,38 @@ Built with modern web technologies`
 
 /* ---------------- PATH HELPERS ---------------- */
 
-function getCurrentDir() {
-  const pathParts = currentPath.split("/").filter(Boolean);
-  let dir = fs["/"];
+function pathParts(path) {
+  return path.split("/").filter(Boolean);
+}
 
-  for (const part of pathParts) {
-    if (!dir.files || !dir.files[part]) {
-      return null;
-    }
-    dir = dir.files[part];
+function getNode(path = currentPath) {
+  let node = fs["/"];
+  for (const part of pathParts(path)) {
+    if (!node.files || !node.files[part]) return null;
+    node = node.files[part];
+  }
+  return node;
+}
+
+function resolvePath(target) {
+  if (!target || target === "~") return "/";
+  if (target.startsWith("/")) return target;
+
+  const base = pathParts(currentPath);
+  const incoming = target.split("/").filter(Boolean);
+
+  for (const part of incoming) {
+    if (part === ".") continue;
+    if (part === "..") base.pop();
+    else base.push(part);
   }
 
-  return dir;
+  return "/" + base.join("/");
 }
 
 function updatePrompt() {
-  promptElement.textContent = `harunerkam@portfolio:${currentPath}$`;
+  const displayPath = currentPath === "/" ? "/" : currentPath;
+  promptElement.textContent = `harunerkam@portfolio:${displayPath}$`;
 }
 
 /* ---------------- BOOT ---------------- */
@@ -117,26 +244,25 @@ async function bootSequence() {
   input.disabled = true;
 
   const bootLines = [
-    "Booting ekOS v1.0...",
-    "Loading developer profile...",
-    "Initializing AI modules...",
-    "Mounting project filesystem..."
+    "Booting ekOS v2.0...",
+    "Loading engineering profile...",
+    "Mounting experience and project filesystem...",
+    "Initializing portfolio shell..."
   ];
 
   for (const line of bootLines) {
-    print(line);
-    await delay(600);
+    print(`<span class="muted">${line}</span>`);
+    await delay(140);
   }
 
   print("");
-  print("Running system scan...");
-  print("");
-
   await systemScan();
-
   print("");
-  print("System ready.");
-  print("Type <b>help</b> to see commands.");
+  print(`<span class="heading">${PROFILE.name}</span>`);
+  print(`<span class="accent">${PROFILE.headline}</span>`);
+  print("Backend-focused engineer building and operating production systems end-to-end.");
+  print("");
+  print(`Try <span class="accent">about</span>, <span class="accent">experience</span>, <span class="accent">projects</span>, <span class="accent">skills</span> or <span class="accent">cv</span>.`);
 
   inputLine.classList.remove("hidden");
   input.disabled = false;
@@ -145,141 +271,143 @@ async function bootSequence() {
 
 async function systemScan() {
   const modules = [
-    "AI Systems",
-    "DevOps Automation",
-    "Scalable Architectures",
-    "SaaS Platforms",
-    "Kubernetes Infrastructure"
+    "Backend & API Systems",
+    "Full Stack Applications",
+    "DevOps & Kubernetes",
+    "Data & PostgreSQL",
+    "R&D / Real-time AI Services"
   ];
 
   for (const module of modules) {
     const line = document.createElement("div");
-    line.innerHTML = `Scanning ${module}...`;
+    line.className = "output-line muted";
+    line.textContent = `Scanning ${module}...`;
     output.appendChild(line);
-    output.scrollTop = output.scrollHeight;
-
-    await delay(400);
-
-    line.innerHTML = `✔ ${module}`;
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+    await delay(90);
+    line.innerHTML = `<span class="accent">✔</span> ${module}`;
   }
 }
-
-bootSequence();
 
 /* ---------------- COMMANDS ---------------- */
 
 const commands = {
   help() {
-    print(`
-Available commands:
+    print(`<span class="heading">Available commands</span>
 
-help
-whoami
-about
-skills
-ls
-cd
-cat
-pwd
-open github
-open linkedin
-clear
-    `);
+about              Profile summary
+whoami             Current engineering identity
+skills             Technical stack
+experience         Career timeline
+projects           List selected projects
+contact            Contact links
+cv                  List CV versions
+cv backend          Open backend CV
+cv fullstack        Open full stack CV
+cv master           Open master CV
+
+ls [path]           List files/directories
+cd &lt;dir&gt;            Change virtual directory
+cat &lt;file&gt;          Read a virtual file
+pwd                 Print current path
+open github         Open GitHub
+open linkedin       Open LinkedIn
+open cv [version]   Open a CV PDF
+clear               Clear terminal
+
+<span class="muted">Tip: use ↑/↓ for history and Tab for autocomplete.</span>`);
   },
 
   whoami() {
-    print(`
-Harun Erkam Balı
+    print(`<span class="heading">${PROFILE.name}</span>
+${PROFILE.headline}
 
-System Architect
-Full Stack Engineer
-AI Systems Builder
-    `);
+Backend-focused engineer · production ownership · software + infrastructure + R&D`);
   },
 
   about() {
-    print(`
-Full stack engineer focused on:
-
-• scalable backend systems
-• AI agents
-• DevOps automation
-    `);
+    print(fs["/"].files["about.txt"].content);
   },
 
   skills() {
-    print(`
-Backend
-- Python
-- Django
-- FastAPI
-- .NET
-
-DevOps
-- Docker
-- Kubernetes
-- CI/CD
-
-AI
-- LLM
-- RAG
-- Vector DB
-
-Frontend
-- React
-- Next.js
-    `);
+    print(fs["/"].files["skills.txt"].content);
   },
 
-  ls() {
-    const dir = getCurrentDir();
+  experience() {
+    print(fs["/"].files["experience.txt"].content);
+  },
+
+  projects() {
+    const projectsDir = fs["/"].files.projects;
+    print(`<span class="heading">Selected projects</span>`);
+    Object.keys(projectsDir.files).forEach((name) => print(`<span class="dir">projects/${name}</span>`));
+    print(`<span class="muted">Use: cd projects → ls → cat &lt;filename&gt;</span>`);
+  },
+
+  contact() {
+    print(fs["/"].files["contact.txt"].content);
+  },
+
+  cv(arg = "") {
+    const version = normalizeArg(arg);
+    if (!version) {
+      print(`<span class="heading">CV versions</span>
+master     Full profile / master CV
+backend    Backend-focused CV
+fullstack  Full Stack-focused CV
+
+Use: <span class="accent">cv backend</span>, <span class="accent">cv fullstack</span> or <span class="accent">cv master</span>`);
+      return;
+    }
+
+    if (CV_FILES[version]) {
+      window.open(CV_FILES[version], "_blank", "noopener");
+      print(`Opening ${escapeHtml(version)} CV...`);
+      return;
+    }
+
+    print(`Unknown CV version: ${escapeHtml(version)}`);
+  },
+
+  ls(arg = "") {
+    const targetPath = arg ? resolvePath(arg) : currentPath;
+    const dir = getNode(targetPath);
 
     if (!dir || dir.type !== "dir") {
-      print("directory not found");
+      print(`ls: cannot access '${escapeHtml(arg)}': directory not found`);
       return;
     }
 
-    Object.keys(dir.files).forEach((name) => print(name));
+    Object.entries(dir.files).forEach(([name, node]) => {
+      print(node.type === "dir" ? `<span class="dir">${name}/</span>` : name);
+    });
   },
 
-  cd(arg) {
-    if (!arg) {
-      currentPath = "/";
-      updatePrompt();
-      return;
-    }
+  cd(arg = "") {
+    const targetPath = resolvePath(arg || "/");
+    const dir = getNode(targetPath);
 
-    if (arg === "..") {
-      const parts = currentPath.split("/").filter(Boolean);
-      parts.pop();
-      currentPath = "/" + parts.join("/");
-      if (currentPath === "") currentPath = "/";
-      updatePrompt();
-      return;
-    }
-
-    const dir = getCurrentDir();
-
-    if (dir && dir.files[arg] && dir.files[arg].type === "dir") {
-      currentPath += (currentPath === "/" ? "" : "/") + arg;
+    if (dir && dir.type === "dir") {
+      currentPath = targetPath === "" ? "/" : targetPath;
       updatePrompt();
     } else {
-      print("directory not found");
+      print(`cd: ${escapeHtml(arg)}: directory not found`);
     }
   },
 
-  cat(arg) {
+  cat(arg = "") {
     if (!arg) {
-      print("file not found");
+      print("cat: missing file operand");
       return;
     }
 
-    const dir = getCurrentDir();
+    const targetPath = resolvePath(arg);
+    const node = getNode(targetPath);
 
-    if (dir && dir.files[arg] && dir.files[arg].type === "file") {
-      print(dir.files[arg].content);
+    if (node && node.type === "file") {
+      print(node.content);
     } else {
-      print("file not found");
+      print(`cat: ${escapeHtml(arg)}: file not found`);
     }
   },
 
@@ -287,14 +415,45 @@ Frontend
     print(currentPath);
   },
 
-  open(arg) {
-    if (arg === "github") {
-      window.open("https://github.com/erkamspyjamas", "_blank");
-    } else if (arg === "linkedin") {
-      window.open("https://www.linkedin.com/in/harunerkam/", "_blank");
-    } else {
-      print("unknown target");
+  open(arg = "") {
+    const target = normalizeArg(arg);
+
+    if (target === "github") {
+      window.open(PROFILE.github, "_blank", "noopener");
+      return;
     }
+
+    if (target === "linkedin") {
+      window.open(PROFILE.linkedin, "_blank", "noopener");
+      return;
+    }
+
+    if (target === "website") {
+      window.open(PROFILE.website, "_blank", "noopener");
+      return;
+    }
+
+    if (target === "email") {
+      window.location.href = `mailto:${PROFILE.email}`;
+      return;
+    }
+
+    if (target === "cv" || target === "cv master") {
+      commands.cv("master");
+      return;
+    }
+
+    if (target === "cv backend") {
+      commands.cv("backend");
+      return;
+    }
+
+    if (target === "cv fullstack") {
+      commands.cv("fullstack");
+      return;
+    }
+
+    print(`Unknown target: ${escapeHtml(arg)}. Try open github, open linkedin or open cv backend.`);
   },
 
   clear() {
@@ -304,101 +463,100 @@ Frontend
 
 /* ---------------- COMMAND RUNNER ---------------- */
 
-function runCommand(cmd) {
-  const parts = cmd.trim().split(" ");
-  const base = parts[0];
-  const arg = parts.slice(1).join(" ");
+function runCommand(rawCommand) {
+  const cmd = rawCommand.trim();
+  if (!cmd) return;
 
-  if (!base) return;
+  const firstSpace = cmd.indexOf(" ");
+  const base = (firstSpace === -1 ? cmd : cmd.slice(0, firstSpace)).toLowerCase();
+  const arg = firstSpace === -1 ? "" : cmd.slice(firstSpace + 1).trim();
 
   if (commands[base]) {
     commands[base](arg);
   } else {
-    print("Command not found");
+    print(`Command not found: ${escapeHtml(base)}. Type <span class="accent">help</span>.`);
+  }
+}
+
+/* ---------------- AUTOCOMPLETE ---------------- */
+
+function autocomplete() {
+  const value = input.value.trim();
+  const parts = value.split(/\s+/);
+
+  if (parts.length === 1) {
+    const partial = parts[0].toLowerCase();
+    const matches = Object.keys(commands).filter((name) => name.startsWith(partial));
+    if (matches.length === 1) input.value = matches[0];
+    return;
+  }
+
+  const base = parts[0].toLowerCase();
+
+  if (base === "cv" && parts.length === 2) {
+    const partial = parts[1].toLowerCase();
+    const matches = Object.keys(CV_FILES).filter((name) => name.startsWith(partial));
+    if (matches.length === 1) input.value = `cv ${matches[0]}`;
+    return;
+  }
+
+  if (["cat", "cd", "ls"].includes(base) && parts.length === 2) {
+    const dir = getNode(currentPath);
+    if (!dir || !dir.files) return;
+
+    const partial = parts[1];
+    const matches = Object.keys(dir.files).filter((name) => name.startsWith(partial));
+    if (matches.length === 1) input.value = `${base} ${matches[0]}`;
   }
 }
 
 /* ---------------- KEYBOARD ---------------- */
 
-input.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
+input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
     const cmd = input.value.trim();
 
-    print(`<span class="prompt">harunerkam@portfolio:${currentPath}$</span> ${cmd}`);
-
-    runCommand(cmd);
-
     if (cmd) {
+      print(`<span class="prompt">harunerkam@portfolio:${escapeHtml(currentPath)}$</span> <span class="command-echo">${escapeHtml(cmd)}</span>`);
+      runCommand(cmd);
       history.push(cmd);
       historyIndex = history.length;
     }
 
     input.value = "";
+    return;
   }
 
-  if (e.key === "ArrowUp") {
-    e.preventDefault();
-
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
     if (historyIndex > 0) {
-      historyIndex--;
+      historyIndex -= 1;
       input.value = history[historyIndex];
     }
+    return;
   }
 
-  if (e.key === "ArrowDown") {
-    e.preventDefault();
-
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
     if (historyIndex < history.length - 1) {
-      historyIndex++;
+      historyIndex += 1;
       input.value = history[historyIndex];
     } else {
       historyIndex = history.length;
       input.value = "";
     }
+    return;
   }
 
-if(e.key === "Tab"){
+  if (event.key === "Tab") {
+    event.preventDefault();
+    autocomplete();
+  }
+});
 
-e.preventDefault()
-
-const value = input.value.trim()
-
-const parts = value.split(" ")
-
-if(parts.length === 1){
-
-const cmd = parts[0]
-
-const matches = Object.keys(commands)
-.filter(c => c.startsWith(cmd))
-
-if(matches.length === 1){
-
-input.value = matches[0]
-
-}
-
-}
-
-if(parts.length === 2){
-
-const dir = getCurrentDir()
-
-const file = parts[1]
-
-const matches = Object.keys(dir.files)
-.filter(f => f.startsWith(file))
-
-if(matches.length === 1){
-
-input.value = parts[0] + " " + matches[0]
-
-}
-
-}
-
-}
-
+document.addEventListener("click", () => {
+  if (!input.disabled) input.focus();
 });
 
 updatePrompt();
+bootSequence();
