@@ -39,7 +39,7 @@ Klasik modda sıcak açık arka plan, koyu yazı ve yeşil vurgu kullanılır. T
 
 ## Proje kapsamı
 
-Klasik görünüm ve ekOS sanal dosya sistemi aynı 13 proje özetini içerir. Doom Team / Doom Core, Wi-Fi/Bluetooth kulaklık geliştirme, Neurosound Premium algoritması, odyogram cihazı tersine mühendisliği, dinleme testi, NSP CRM ve NSP Stream eklenmiştir. Önceki altı proje ve Finance-Trading-Algorithms bağlantısı korunur.
+Klasik görünüm ve ekOS sanal dosya sistemi aynı 12 proje özetini içerir. Doom Team / Doom Core, Wi-Fi/Bluetooth kulaklık geliştirme, odyogram cihazı tersine mühendisliği, dinleme testi, NSP CRM ve NSP Stream eklenmiştir. Önceki altı proje ve Finance-Trading-Algorithms bağlantısı korunur.
 
 Doom Team özeti README, proje bağlamı, paket tanımı ve mevcut kaynak dosyalarından doğrulanmıştır. Diğer eklemeler kullanıcının verdiği çalışma adlarıyla sınırlı, genel kapsam açıklamalarıdır; doğrulanmamış teknoloji, performans veya klinik etkinlik iddiası eklenmez. Özel repo kodu, algoritma ayrıntıları veya iç ortam bilgileri yayınlanmaz.
 

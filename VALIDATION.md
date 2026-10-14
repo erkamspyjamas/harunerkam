@@ -21,9 +21,9 @@ Bu kontrol yerel teslimi kapsar. harunerkam.com'a dağıtım yapılmamıştır. 
 
 ## Ek proje kapsamı doğrulaması
 
-- Doom Team / Doom Core ve belirtilen altı çalışma hem klasik görünümde hem ekOS `projects` listesindedir; toplam 13 proje kartı vardır.
-- Yedi yeni sanal proje dosyası gerçek tarayıcıda `cd projects` ve `cat` ile okunmuştur.
-- 320 piksel ekranda 13 kartın sınırları sayfa genişliği içindedir; sayfa yatay taşmaz.
+- Doom Team / Doom Core ve belirtilen beş çalışma hem klasik görünümde hem ekOS `projects` listesindedir; toplam 12 proje kartı vardır.
+- Altı yeni sanal proje dosyası gerçek tarayıcıda `cd projects` ve `cat` ile okunmuştur.
+- 320 piksel ekranda 12 kartın sınırları sayfa genişliği içindedir; sayfa yatay taşmaz.
 - Komut alanının yeşil çerçevesi yeniden oluşmaz; konsolda hata/uyarı görülmemiştir.
 
 ## Tab tamamlama düzeltmesi
@@ -32,3 +32,9 @@ Bu kontrol yerel teslimi kapsar. harunerkam.com'a dağıtım yapılmamıştır. 
 - Hızlı komut düğmeleri, ilgili olay dinleyicileri ve düğme stilleri kaldırıldı. Alt bölümde yalnız klavye ipuçları kalır.
 - `ab`, `cv ba` ve `/projects` dizininde `cat doom-t` tamamlanır. Tekrarlanan Tab, boş giriş ve eşleşmeyen komutta odak `commandInput` üzerinde kalır.
 - Shift+Tab komut alanından önceki kontrole çıkabilir. Enter ve komut geçmişi çalışır; tarayıcı konsolunda hata/uyarı yoktur.
+
+## Proje kaldırma doğrulaması
+
+- Kaldırılan proje klasik görünümde bulunmaz; kalan 12 kartın sırası kesintisizdir.
+- ekOS `projects` listesinde 12 dosya görünür; kaldırılan dosyayı `cat` ile okumak `file not found` sonucunu verir.
+- Eski ekOS verisinin önbellekten gelmemesi için script URL'sine güncel dosya özeti eklendi. Tarayıcının geçici test önbellek ayarı geri alındı.

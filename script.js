@@ -150,13 +150,6 @@ Wireless headphone development combining Wi-Fi and Bluetooth connectivity.
 Focus: Wireless audio · Wi-Fi · Bluetooth
 R&amp;D project.`
           },
-          "neurosound-premium-algorithm.md": {
-            type: "file",
-            content: `<span class="heading">Neurosound Premium Algorithm</span>
-Algorithm development for the Neurosound Premium system.
-Focus: Algorithm development · R&amp;D
-R&amp;D project.`
-          },
           "audiogram-reverse-engineering.md": {
             type: "file",
             content: `<span class="heading">Audiogram Device Reverse Engineering</span>
