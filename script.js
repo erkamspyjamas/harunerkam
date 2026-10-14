@@ -366,7 +366,7 @@ open linkedin       Open LinkedIn
 open cv [version]   Open a CV PDF
 clear               Clear terminal
 
-<span class="muted">Tip: use ↑/↓ for history and Tab for autocomplete.</span>`);
+<span class="muted">Tip: use ↑/↓ for history, Tab for autocomplete and Shift+Tab to leave the input.</span>`);
   },
 
   whoami() {
@@ -599,11 +599,11 @@ input.addEventListener("keydown", (event) => {
     return;
   }
 
-  if (event.key === "Tab" && !event.shiftKey && input.value.trim()) {
-    const previousValue = input.value;
+  if (event.key === "Tab" && !event.shiftKey) {
+    // Tab belongs to the shell even when no completion changes the text.
+    // Shift+Tab keeps normal browser navigation available to leave the input.
+    event.preventDefault();
     autocomplete();
-    // Complete a partial command; the next Tab can leave the input normally.
-    if (input.value !== previousValue) event.preventDefault();
   }
 });
 
@@ -612,14 +612,5 @@ terminalBody.addEventListener("click", (event) => {
   if (!input.disabled && !event.target.closest("a, button, input") && !window.getSelection().toString()) input.focus();
 });
 
-document.querySelectorAll("[data-command]").forEach((button) => {
-  button.addEventListener("click", () => {
-    if (input.disabled) return;
-    const command = button.dataset.command;
-    print(`<span class="prompt">harunerkam@portfolio:${escapeHtml(currentPath)}$</span> ${escapeHtml(command)}`);
-    runCommand(command);
-    input.focus();
-  });
-});
 
 updatePrompt();

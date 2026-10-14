@@ -92,7 +92,7 @@ html[data-mode=terminal] .mode-switch button:hover:not([aria-pressed=true]){back
 html[data-mode=terminal] .terminal-invitation{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;font-size:12px;color:#a7cdbb;margin:18px 16px}
 .terminal-invitation button{border:0;background:none;color:#00ff9c;padding:8px;font-size:12px;text-decoration:underline;text-underline-offset:4px;min-height:36px}
 .terminal{margin:0 auto 24px;height:min(760px,calc(100dvh - 175px));min-height:300px;font-family:var(--mono);color:#d1fae5}
-.terminal-footer{gap:12px;color:#96b9a4}.terminal-footer button{border:1px solid #315044;background:transparent;color:#00ff9c;padding:4px 8px;font:inherit;border-radius:3px;min-height:28px}.terminal-footer button:hover{background:#153225}
+.terminal-footer{gap:12px;color:#96b9a4}
 .terminal input:focus-visible{outline:none}
 .terminal .input-line:focus-within .prompt{text-decoration:underline;text-decoration-color:#78a991;text-underline-offset:4px}
 .terminal .input-line{flex-wrap:wrap;gap:8px}.terminal input{flex:1;min-width:100px}

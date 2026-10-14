@@ -48,7 +48,7 @@ Doom Team özeti README, proje bağlamı, paket tanımı ve mevcut kaynak dosyal
 - Mod düğmeleri Enter ve Space ile kullanılabilir; aktif durum `aria-pressed` ile bildirilir.
 - Atla bağlantısı, görünür odak göstergeleri, semantik başlıklar ve mod değişimi duyurusu vardır.
 - Gizli modun kontrolleri odak sırasından çıkarılır.
-- Terminalde Tab kısmi komutu tamamlar; tamamlanan komutta tekrar Tab odak sırasına devam eder. Shift+Tab her zaman geri çıkabilir.
+- Terminalde Tab kısmi komutu tamamlar ve tekrar basıldığında, giriş boşken veya eşleşme yokken de odağı komut alanında tutar. Shift+Tab komut alanından geri çıkabilir. Alt kısımda odak devralan hızlı komut düğmeleri yoktur.
 - Komut alanı bağlantı tıklamalarından sonra odağı zorla devralmaz.
 - Azaltılmış hareket tercihi, klasik sayfanın yumuşak kaydırmasını devre dışı bırakır.
 
