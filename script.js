@@ -266,7 +266,7 @@ async function bootSequence() {
 
   inputLine.classList.remove("hidden");
   input.disabled = false;
-  input.focus();
+  if (document.documentElement.dataset.mode === "terminal" && [document.body, document.getElementById("terminalView")].includes(document.activeElement)) input.focus();
 }
 
 async function systemScan() {
@@ -292,6 +292,7 @@ async function systemScan() {
 /* ---------------- COMMANDS ---------------- */
 
 const commands = {
+  portfolio() { setPortfolioMode("classic", true); },
   help() {
     print(`<span class="heading">Available commands</span>
 
@@ -301,6 +302,7 @@ skills             Technical stack
 experience         Career timeline
 projects           List selected projects
 contact            Contact links
+portfolio           Switch to classic portfolio
 cv                  List CV versions
 cv backend          Open backend CV
 cv fullstack        Open full stack CV
@@ -471,7 +473,7 @@ function runCommand(rawCommand) {
   const base = (firstSpace === -1 ? cmd : cmd.slice(0, firstSpace)).toLowerCase();
   const arg = firstSpace === -1 ? "" : cmd.slice(firstSpace + 1).trim();
 
-  if (commands[base]) {
+  if (Object.prototype.hasOwnProperty.call(commands, base)) {
     commands[base](arg);
   } else {
     print(`Command not found: ${escapeHtml(base)}. Type <span class="accent">help</span>.`);
@@ -548,15 +550,27 @@ input.addEventListener("keydown", (event) => {
     return;
   }
 
-  if (event.key === "Tab") {
-    event.preventDefault();
+  if (event.key === "Tab" && !event.shiftKey && input.value.trim()) {
+    const previousValue = input.value;
     autocomplete();
+    // Complete a partial command; the next Tab can leave the input normally.
+    if (input.value !== previousValue) event.preventDefault();
   }
 });
 
-document.addEventListener("click", () => {
-  if (!input.disabled) input.focus();
+terminalBody.addEventListener("click", (event) => {
+  // Links and selected output must remain usable without moving focus.
+  if (!input.disabled && !event.target.closest("a, button, input") && !window.getSelection().toString()) input.focus();
+});
+
+document.querySelectorAll("[data-command]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (input.disabled) return;
+    const command = button.dataset.command;
+    print(`<span class="prompt">harunerkam@portfolio:${escapeHtml(currentPath)}$</span> ${escapeHtml(command)}`);
+    runCommand(command);
+    input.focus();
+  });
 });
 
 updatePrompt();
-bootSequence();

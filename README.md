@@ -1,146 +1,62 @@
-# harunerkam.com
+# Harun Erkam Balı — Dual-mode portfolio
 
-Personal portfolio website for **Harun Erkam Balı**.
+Mevcut ekOS v2.0 terminal portfolyosunu korur ve klasik bir portfolyo görünümü ekler. Derleme, paket kurulumu veya sunucu tarafı uygulama gerektirmez.
 
-The site is designed as an interactive terminal-style portfolio and presents my experience across **Full Stack Development, Backend Engineering, DevOps, and R&D**.
+## Kullanım
 
-## Features
+`index.html` dosyasını tarayıcıda açabilir veya bu klasörde aşağıdaki komutla yerel önizleme başlatabilirsiniz:
 
-- Terminal-inspired interactive interface
-- Command history and tab completion
-- Virtual filesystem navigation with `ls`, `cd`, `cat`, and `pwd`
-- Professional profile and technical skills
-- Experience timeline
-- Selected projects
-- GitHub and LinkedIn shortcuts
-- Downloadable CV variants
-- Responsive layout
-- SEO metadata and favicon support
-
-## Tech Stack
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Cloudflare Web Analytics
-
-No framework or build step is required.
-
-## Available Commands
-
-```bash
-help
-whoami
-about
-skills
-experience
-projects
-ls
-cd
-cat
-pwd
-contact
-cv
-cv master
-cv backend
-cv fullstack
-open github
-open linkedin
-clear
+```sh
+python -m http.server 4173
 ```
 
-## Project Structure
+Ardından `http://localhost:4173` adresini açın.
 
-```text
-.
-├── index.html
-├── style.css
-├── script.js
-├── favicon.png
-├── README.md
-└── cv/
-    ├── HARUN_ERKAM_BALI_CV.pdf
-    ├── HARUN_ERKAM_BALI_BACKEND_CV.pdf
-    └── HARUN_ERKAM_BALI_FULLSTACK_CV.pdf
-```
+- İlk ziyarette ekOS açılır; üstteki **Classic portfolio** düğmesi komut yazmadan geçiş sağlar.
+- **ekOS terminal** düğmesi terminale geri döndürür. Aynı sayfa oturumunda komut geçmişi, mevcut dizin ve çıktı korunur.
+- Seçilen mod tarayıcıda hatırlanır. Depolama engellense de mod geçişi çalışır.
+- Klasik mod bağlantısı: `?mode=classic`
+- Terminal bağlantısı: `?mode=terminal`
+- Bölüm bağlantısı: `?mode=classic#projects` (About, Experience, Skills, Projects, CV ve Contact için aynı yaklaşım).
+- JavaScript kapalıysa klasik modun içeriği, bağlantıları ve CV indirmeleri kullanılabilir.
+- Sayfanın yenilenmesi terminal oturumunu yeniden başlatır; sadece görünüm tercihi kalıcıdır.
 
-## Running Locally
+## Dosyalar
 
-Because the project is fully static, you can open `index.html` directly in a browser.
+- `index.html`: Semantik klasik içerik, mevcut terminal ve ortak geçiş düğmeleri.
+- `style.css`: Ortak çerçeve, klasik tasarım ve responsive düzen.
+- `terminal.css`: Mevcut ekOS stil dosyası; ekOS'a yönelik ek düzenlemeler `style.css` içindedir.
+- `script.js`: Mevcut sanal dosya sistemi ve komutlar; erişilebilir odak yönetimi ve `portfolio` komutu eklenmiştir.
+- `mode.js`: Görünüm tercihi, mod geçişi, odak yönetimi ve derin bağlantılar.
+- `cv/`: Kaynaktaki üç orijinal CV PDF dosyası.
+- `favicon.png`, `LICENSE`: Mevcut kaynaktan alınan dosyalar.
 
-For a local HTTP server:
+## İçerik ve tasarım
 
-### Python
+Site dili, mevcut uluslararası CV ve profil anlatımıyla uyumlu olarak İngilizcedir. Neurosound'daki dört aşamalı kariyer ilerlemesi, AutoDidactic Technologies deneyimi, eğitim ve güncel teknoloji alanları işlenmiştir. Özel projelerde bağlantı veya demo uydurulmamıştır. GitHub'da açık Finance-Trading-Algorithms araştırma deposu ayrıca bağlantılanmıştır.
 
-```bash
-python -m http.server 8080
-```
+Klasik modda sıcak açık arka plan, koyu yazı ve yeşil vurgu kullanılır. Terminalin koyu arka planı ve yeşil komut görünümü korunur. Harici yazı tipi, görsel veya JavaScript kütüphanesi gerektirmez.
 
-Then open:
+## Klavye ve erişilebilirlik
 
-```text
-http://localhost:8080
-```
+- Mod düğmeleri Enter ve Space ile kullanılabilir; aktif durum `aria-pressed` ile bildirilir.
+- Atla bağlantısı, görünür odak göstergeleri, semantik başlıklar ve mod değişimi duyurusu vardır.
+- Gizli modun kontrolleri odak sırasından çıkarılır.
+- Terminalde Tab kısmi komutu tamamlar; tamamlanan komutta tekrar Tab odak sırasına devam eder. Shift+Tab her zaman geri çıkabilir.
+- Komut alanı bağlantı tıklamalarından sonra odağı zorla devralmaz.
+- Azaltılmış hareket tercihi, klasik sayfanın yumuşak kaydırmasını devre dışı bırakır.
 
-### VS Code
+## Yayına alma
 
-You can also use the **Live Server** extension and open `index.html`.
+ZIP içindeki dosyaları mevcut statik sitenin köküne, `cv/` klasör yapısını koruyarak yükleyin. Yeni `terminal.css` ve `mode.js` dosyalarının da yüklenmesi gerekir. Nginx, GitHub Pages veya benzeri statik hosting yeterlidir.
 
-## Deployment
+Mevcut bir repo üzerinde uygulanacaksa güncellenen `index.html`, `style.css`, `script.js`, `README.md` dosyalarını değiştirin; `terminal.css` ve `mode.js` dosyalarını ekleyin. CV dosyaları değişmemiştir.
 
-The project can be deployed to any static hosting provider or standard web server.
+Dosyalar statik hosting için hazırdır. Canlı HTML'deki Cloudflare analiz betiği bu kaynakta bulunmaz; gerekiyorsa hosting ayarınızdan etkinleştirin.
 
-Examples:
+## Kaynak
 
-- Nginx
-- Apache
-- GitHub Pages
-- Cloudflare Pages
-- Netlify
-- Vercel
-
-The production version is published at:
-
-**https://harunerkam.com**
-
-## CV
-
-The repository includes three CV versions:
-
-- **Master CV**
-- **Backend CV**
-- **Full Stack CV**
-
-These are available from the terminal interface through the `cv` command.
-
-## Profile
-
-**Harun Erkam Balı**  
-Full Stack Developer | DevOps Engineer | R&D Engineer
-
-Main technologies include:
-
-- Python
-- Django
-- FastAPI
-- Go
-- Node.js / Express.js
-- React / Next.js
-- PostgreSQL
-- Redis
-- Docker
-- Kubernetes / k3s
-- Nginx
-- CI/CD
-
-## Links
-
-- Website: https://harunerkam.com
-- LinkedIn: https://www.linkedin.com/in/harunerkam/
-- GitHub: https://github.com/erkamspyjamas
-
-## License
-
-This project is licensed under the **MIT License**.
-
-See the [`LICENSE`](LICENSE) file for details.
+- https://github.com/erkamspyjamas/harunerkam
+- Başlangıç revizyonu: `83963b7a84bdd0cf8265db8e72048154ad88dbe5`
+- Kariyer içeriği: https://github.com/erkamspyjamas/erkamspyjamas ve mevcut sitenin `script.js` içeriği (14 Ekim 2026).
+- Lisans: MIT, mevcut `LICENSE` dosyasına bakın.
