@@ -136,6 +136,55 @@ GitHub   <a class="link" href="${PROFILE.github}" target="_blank" rel="noopener"
       "projects": {
         type: "dir",
         files: {
+          "doom-team.md": {
+            type: "file",
+            content: `<span class="heading">Doom Team / Doom Core</span>
+A self-hosted AI software engineering platform that coordinates planning, development, QA and review. Durable task graphs, isolated Git workspaces and bounded recovery keep the workflow traceable.
+Focus: TypeScript · Node.js · Fastify · SQLite
+Private project.`
+          },
+          "wireless-headphones.md": {
+            type: "file",
+            content: `<span class="heading">Wi-Fi / Bluetooth Headphones</span>
+Wireless headphone development combining Wi-Fi and Bluetooth connectivity.
+Focus: Wireless audio · Wi-Fi · Bluetooth
+R&amp;D project.`
+          },
+          "neurosound-premium-algorithm.md": {
+            type: "file",
+            content: `<span class="heading">Neurosound Premium Algorithm</span>
+Algorithm development for the Neurosound Premium system.
+Focus: Algorithm development · R&amp;D
+R&amp;D project.`
+          },
+          "audiogram-reverse-engineering.md": {
+            type: "file",
+            content: `<span class="heading">Audiogram Device Reverse Engineering</span>
+Reverse engineering of an audiogram device to understand its operation and integration requirements.
+Focus: Device analysis · Reverse engineering
+R&amp;D project.`
+          },
+          "listening-test.md": {
+            type: "file",
+            content: `<span class="heading">Listening Test</span>
+Development of a listening test and its supporting application workflow.
+Focus: Audio testing · Application development
+R&amp;D project.`
+          },
+          "nsp-crm.md": {
+            type: "file",
+            content: `<span class="heading">NSP CRM</span>
+CRM development for the NSP platform, covering client records and operational workflows.
+Focus: CRM · Client workflows
+Platform project.`
+          },
+          "nsp-stream.md": {
+            type: "file",
+            content: `<span class="heading">NSP Stream</span>
+Audio streaming development for the NSP platform.
+Focus: Audio streaming · NSP
+Platform project.`
+          },
           "sustindex.md": {
             type: "file",
             content: `<span class="heading">Sustindex</span>

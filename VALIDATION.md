@@ -18,3 +18,10 @@ Yerel statik sunucu ve gerçek tarayıcı üzerinde kontrol edildi.
 - Komut alanındaki yeşil odak çerçevesi kaldırıldı. Odak, komut isteminin alt çizgisi ve doğal metin imleciyle gösterilir; tarayıcıda `outline: none` doğrulandı.
 
 Bu kontrol yerel teslimi kapsar. harunerkam.com'a dağıtım yapılmamıştır. Ekran okuyucu uygulamasıyla ayrıca test yapılmamıştır; semantik yapı, odak davranışı ve erişilebilirlik ağacı tarayıcıda kontrol edilmiştir.
+
+## Ek proje kapsamı doğrulaması
+
+- Doom Team / Doom Core ve belirtilen altı çalışma hem klasik görünümde hem ekOS `projects` listesindedir; toplam 13 proje kartı vardır.
+- Yedi yeni sanal proje dosyası gerçek tarayıcıda `cd projects` ve `cat` ile okunmuştur.
+- 320 piksel ekranda 13 kartın sınırları sayfa genişliği içindedir; sayfa yatay taşmaz.
+- Komut alanının yeşil çerçevesi yeniden oluşmaz; konsolda hata/uyarı görülmemiştir.

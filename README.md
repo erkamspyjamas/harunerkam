@@ -37,6 +37,12 @@ Site dili, mevcut uluslararası CV ve profil anlatımıyla uyumlu olarak İngili
 
 Klasik modda sıcak açık arka plan, koyu yazı ve yeşil vurgu kullanılır. Terminalin koyu arka planı ve yeşil komut görünümü korunur. Harici yazı tipi, görsel veya JavaScript kütüphanesi gerektirmez.
 
+## Proje kapsamı
+
+Klasik görünüm ve ekOS sanal dosya sistemi aynı 13 proje özetini içerir. Doom Team / Doom Core, Wi-Fi/Bluetooth kulaklık geliştirme, Neurosound Premium algoritması, odyogram cihazı tersine mühendisliği, dinleme testi, NSP CRM ve NSP Stream eklenmiştir. Önceki altı proje ve Finance-Trading-Algorithms bağlantısı korunur.
+
+Doom Team özeti README, proje bağlamı, paket tanımı ve mevcut kaynak dosyalarından doğrulanmıştır. Diğer eklemeler kullanıcının verdiği çalışma adlarıyla sınırlı, genel kapsam açıklamalarıdır; doğrulanmamış teknoloji, performans veya klinik etkinlik iddiası eklenmez. Özel repo kodu, algoritma ayrıntıları veya iç ortam bilgileri yayınlanmaz.
+
 ## Klavye ve erişilebilirlik
 
 - Mod düğmeleri Enter ve Space ile kullanılabilir; aktif durum `aria-pressed` ile bildirilir.
