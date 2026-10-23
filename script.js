@@ -64,6 +64,10 @@ ${PROFILE.headline}
 Backend-focused software engineer with 3+ years of experience designing,
 building and operating production systems end-to-end.
 
+I develop C#/.NET APIs and web applications with ASP.NET Core and
+Entity Framework Core, backed by MSSQL and PostgreSQL, and work across
+Linux and Windows Server environments.
+
 Core focus:
 • backend and API architecture
 • production-grade full-stack systems
@@ -77,6 +81,7 @@ Core focus:
 Python · Go · TypeScript · JavaScript · C# · SQL
 
 <span class="heading">Backend</span>
+C# · .NET · ASP.NET Core · Entity Framework Core
 Django · Django REST Framework · FastAPI · Node.js · Express.js · NestJS
 REST APIs · JWT · RBAC · async/background processing
 
@@ -88,8 +93,8 @@ PostgreSQL · Redis · MySQL · MSSQL · MongoDB · Firebase
 relational modeling · migrations · indexing · query optimization
 
 <span class="heading">DevOps & Infrastructure</span>
-Docker · Docker Compose · Kubernetes/k3s · Nginx · Traefik · PgBouncer
-Gunicorn/Uvicorn · Linux · GitHub Actions · CI/CD · SSL/TLS
+Docker · Docker Compose · Kubernetes (k8s) · Nginx · Traefik · PgBouncer
+Gunicorn/Uvicorn · Linux · Windows Server · GitHub Actions · CI/CD · SSL/TLS
 health/readiness checks · logging · monitoring
 
 <span class="heading">R&D / AI</span>
@@ -103,12 +108,14 @@ streaming gateways · API/service integration`
 
 <span class="accent">Aug 2026 — Present</span>
 Full Stack Developer & DevOps Engineer — R&D
+C# · .NET APIs & web applications · ASP.NET Core · Entity Framework Core
+MSSQL · Linux · Windows Server · Kubernetes (k8s)
 Django · FastAPI · Go · PostgreSQL · Redis · distributed systems · AI/TTS
 
 <span class="accent">Aug 2024 — Aug 2026</span>
 Full Stack Developer & DevOps Engineer
 Django · FastAPI · Express.js · Node.js · Go · PostgreSQL · Redis
-Docker · k3s/Kubernetes · Nginx · PgBouncer · CI/CD · monitoring
+Docker · Kubernetes (k8s) · Nginx · PgBouncer · CI/CD · monitoring
 
 <span class="accent">Feb 2024 — Aug 2024</span>
 Full Stack Developer
@@ -138,9 +145,16 @@ GitHub   <a class="link" href="${PROFILE.github}" target="_blank" rel="noopener"
         files: {
           "doom-team.md": {
             type: "file",
-            content: `<span class="heading">Doom Team / Doom Core</span>
-A self-hosted AI software engineering platform that coordinates planning, development, QA and review. Durable task graphs, isolated Git workspaces and bounded recovery keep the workflow traceable.
-Focus: TypeScript · Node.js · Fastify · SQLite
+            content: `<span class="heading">Doom Team</span>
+A self-hosted software engineering team with dependency-aware planning, real project validation, independent QA and review, and a human approval boundary. Early engineering release.
+Stack: Python · Git · CLI · AI orchestration
+Public repository: <a class="link" href="https://github.com/erkamspyjamas/doom-team" target="_blank" rel="noopener noreferrer">github.com/erkamspyjamas/doom-team</a>`
+          },
+          "nsp-dotnet-api.md": {
+            type: "file",
+            content: `<span class="heading">NSP .NET API Platform</span>
+A .NET API and background-worker platform for NSP business data, with authentication, client and dealer workflows, CRM operations and reporting backed by MSSQL.
+Stack: C# · ASP.NET Core · Entity Framework Core · MSSQL
 Private project.`
           },
           "wireless-headphones.md": {

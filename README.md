@@ -33,15 +33,15 @@ Ardından `http://localhost:4173` adresini açın.
 
 ## İçerik ve tasarım
 
-Site dili, mevcut uluslararası CV ve profil anlatımıyla uyumlu olarak İngilizcedir. Neurosound'daki dört aşamalı kariyer ilerlemesi, AutoDidactic Technologies deneyimi, eğitim ve güncel teknoloji alanları işlenmiştir. Özel projelerde bağlantı veya demo uydurulmamıştır. GitHub'da açık Finance-Trading-Algorithms araştırma deposu ayrıca bağlantılanmıştır.
+Site dili, mevcut uluslararası CV ve profil anlatımıyla uyumlu olarak İngilizcedir. Neurosound'daki dört aşamalı kariyer ilerlemesi, AutoDidactic Technologies deneyimi, eğitim ve güncel teknoloji alanları işlenmiştir. Özel projelerde bağlantı veya demo uydurulmamıştır. GitHub'daki public Doom Team ve Finance-Trading-Algorithms depoları doğrudan bağlantılanmıştır. C#/.NET API ve web uygulaması geliştirme, ASP.NET Core, Entity Framework Core, MSSQL ve Windows Server deneyimi About, Experience ve Skills bölümlerinde görünürdür.
 
 Klasik modda sıcak açık arka plan, koyu yazı ve yeşil vurgu kullanılır. Terminalin koyu arka planı ve yeşil komut görünümü korunur. Harici yazı tipi, görsel veya JavaScript kütüphanesi gerektirmez.
 
 ## Proje kapsamı
 
-Klasik görünüm ve ekOS sanal dosya sistemi aynı 12 proje özetini içerir. Doom Team / Doom Core, Wi-Fi/Bluetooth kulaklık geliştirme, odyogram cihazı tersine mühendisliği, dinleme testi, NSP CRM ve NSP Stream eklenmiştir. Önceki altı proje ve Finance-Trading-Algorithms bağlantısı korunur.
+Klasik görünüm ve ekOS sanal dosya sistemi aynı 13 proje özetini içerir. Doom Team, NSP .NET API Platform, Wi-Fi/Bluetooth kulaklık geliştirme, odyogram cihazı tersine mühendisliği, dinleme testi, NSP CRM ve NSP Stream eklenmiştir. Önceki altı proje ve Finance-Trading-Algorithms bağlantısı korunur.
 
-Doom Team özeti README, proje bağlamı, paket tanımı ve mevcut kaynak dosyalarından doğrulanmıştır. Diğer eklemeler kullanıcının verdiği çalışma adlarıyla sınırlı, genel kapsam açıklamalarıdır; doğrulanmamış teknoloji, performans veya klinik etkinlik iddiası eklenmez. Özel repo kodu, algoritma ayrıntıları veya iç ortam bilgileri yayınlanmaz.
+Doom Team özeti 23 Ekim 2026 tarihli public main README ve Python paket tanımından doğrulanmıştır. Public sürüm Python tabanlı erken mühendislik sürümüdür; eski Doom Core TypeScript/Fastify yığını bu proje için kullanılmaz. NSP .NET API Platform özeti ilgili API ve Infrastructure projelerindeki ASP.NET Core, EF Core ve SQL Server kullanımından doğrulanmıştır. Diğer eklemeler kullanıcının verdiği çalışma adlarıyla sınırlı, genel kapsam açıklamalarıdır; doğrulanmamış teknoloji, performans veya klinik etkinlik iddiası eklenmez. Özel repo kodu, algoritma ayrıntıları veya iç ortam bilgileri yayınlanmaz.
 
 ## Klavye ve erişilebilirlik
 

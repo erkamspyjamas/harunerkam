@@ -112,3 +112,5 @@ html:not(.js) .terminal,html:not(.js) .terminal-return{display:none}
 
 .section-nav{scrollbar-width:thin;scrollbar-color:#a8b99e transparent}.section-nav::-webkit-scrollbar{height:3px}.section-nav::-webkit-scrollbar-track{background:transparent}.section-nav::-webkit-scrollbar-thumb{border:0;background:#a8b99e}
 .terminal ::-webkit-scrollbar-track{background:#020805}.terminal ::-webkit-scrollbar-thumb{border-color:#020805}
+
+.project-repo-link{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;margin-top:16px;padding:5px 0;color:var(--emerald);font-size:13px;line-height:1.5;text-decoration:underline;text-underline-offset:4px}.project-repo-link:hover{color:var(--ink)}
