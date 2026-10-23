@@ -28,7 +28,7 @@ Ardından `http://localhost:4173` adresini açın.
 - `terminal.css`: Mevcut ekOS stil dosyası; ekOS'a yönelik ek düzenlemeler `style.css` içindedir.
 - `script.js`: Mevcut sanal dosya sistemi ve komutlar; erişilebilir odak yönetimi ve `portfolio` komutu eklenmiştir.
 - `mode.js`: Görünüm tercihi, mod geçişi, odak yönetimi ve derin bağlantılar.
-- `cv/`: Kaynaktaki üç orijinal CV PDF dosyası.
+- `cv/`: 23 Ekim 2026 tarihinde güncellenen Master, Backend ve Full Stack CV PDF dosyaları.
 - `favicon.png`, `LICENSE`: Mevcut kaynaktan alınan dosyalar.
 
 ## İçerik ve tasarım
@@ -56,7 +56,7 @@ Doom Team özeti 23 Ekim 2026 tarihli public main README ve Python paket tanım�
 
 ZIP içindeki dosyaları mevcut statik sitenin köküne, `cv/` klasör yapısını koruyarak yükleyin. Yeni `terminal.css` ve `mode.js` dosyalarının da yüklenmesi gerekir. Nginx, GitHub Pages veya benzeri statik hosting yeterlidir.
 
-Mevcut bir repo üzerinde uygulanacaksa güncellenen `index.html`, `style.css`, `script.js`, `README.md` dosyalarını değiştirin; `terminal.css` ve `mode.js` dosyalarını ekleyin. CV dosyaları değişmemiştir.
+Mevcut bir repo üzerinde uygulanacaksa güncellenen `index.html`, `style.css`, `script.js`, `README.md` dosyalarını değiştirin; `terminal.css` ve `mode.js` dosyalarını ekleyin. CV dosyaları da güncel sürümleriyle yüklenmelidir.
 
 Dosyalar statik hosting için hazırdır. Canlı HTML'deki Cloudflare analiz betiği bu kaynakta bulunmaz; gerekiyorsa hosting ayarınızdan etkinleştirin.
 
@@ -66,3 +66,7 @@ Dosyalar statik hosting için hazırdır. Canlı HTML'deki Cloudflare analiz bet
 - Başlangıç revizyonu: `83963b7a84bdd0cf8265db8e72048154ad88dbe5`
 - Kariyer içeriği: https://github.com/erkamspyjamas/erkamspyjamas ve mevcut sitenin `script.js` içeriği (14 Ekim 2026).
 - Lisans: MIT, mevcut `LICENSE` dosyasına bakın.
+
+## CV güncellemesi - 23 Ekim 2026
+
+Üç CV de ikişer sayfadır. .NET / ASP.NET Core / Entity Framework Core, MSSQL, Windows Server ve Kubernetes (k8s) deneyimi, public Doom Team bağlantısı ve NSP .NET API Platform projesi her sürümün odağına göre işlenmiştir. Mevcut telefon, eğitim, sertifikalar ve kariyer tarihleri korunur. PDF bağlantıları dosya özetine göre sürümlenir; aynı dosya adları kullanılmaya devam eder.

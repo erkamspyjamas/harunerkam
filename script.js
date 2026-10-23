@@ -14,9 +14,9 @@ const PROFILE = {
 };
 
 const CV_FILES = {
-  master: "cv/HARUN_ERKAM_BALI_CV.pdf",
-  backend: "cv/HARUN_ERKAM_BALI_BACKEND_CV.pdf",
-  fullstack: "cv/HARUN_ERKAM_BALI_FULLSTACK_CV.pdf"
+  master: "cv/HARUN_ERKAM_BALI_CV.pdf?v=3d1eaf62f85c",
+  backend: "cv/HARUN_ERKAM_BALI_BACKEND_CV.pdf?v=ee68f83028d2",
+  fullstack: "cv/HARUN_ERKAM_BALI_FULLSTACK_CV.pdf?v=760eb34e24bd"
 };
 
 let history = [];

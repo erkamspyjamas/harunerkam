@@ -47,3 +47,14 @@ Bu kontrol yerel teslimi kapsar. harunerkam.com'a dağıtım yapılmamıştır. 
 - Gerçek tarayıcıda about, skills, experience ve iki proje dosyası okunarak içerik ve Doom Team bağlantısı doğrulandı; konsolda hata/uyarı yoktur.
 - 390 piksel genişlikte sayfa yatay taşmaz. Sürümlü yerel CSS/JS ve favicon istekleri HTTP 200 döner.
 - JavaScript sözdizimi ve iki deponun değişiklik boşluk kontrolleri geçti. Profil README kaynak içeriği ve bağlantıları kontrol edildi.
+
+## 23 Ekim 2026 - Üç CV güncellemesi
+
+- Orijinal üç PDF, origin/main altındaki cv/ dosyalarından alınıp metin ve sayfa görüntüleriyle incelendi.
+- Master, Backend ve Full Stack sürümleri ikişer sayfa olarak yeniden düzenlendi; son altı sayfanın tamamı görsel olarak kontrol edildi.
+- ASP.NET Core, EF Core, MSSQL, Windows Server, k8s, NSP .NET API Platform ve Doom Team üç sürümde de bulunur. Eski Kubernetes dağıtımı adı ve kaldırılan algoritma projesi bulunmaz.
+- Telefon kullanıcı tercihiyle aynen korunur; eğitim tarihleri, GPA ve EF SET bilgileri korunur.
+- PDF link anotasyonlarında public Doom Team, e-posta, site, LinkedIn ve GitHub hedefleri kontrol edildi. PDF metni seçilebilir durumdadır.
+- CV indirme bağlantıları ve ekOS CV yolları güncel PDF özetleriyle sürümlenir.
+
+- Son tarayıcı kontrolünde üç CV düğmesiyle indirilen dosyalar, teslim PDF'leriyle bayt düzeyinde aynı bulundu; konsolda hata/uyarı yoktur.
